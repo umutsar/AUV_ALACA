@@ -27,16 +27,16 @@ void motor_Ayarla() {
   if (Motor_5 >= Mak_deger) Motor_5 = Mak_deger;
   else if (Motor_5 <= Min_deger) Motor_5 = Min_deger;
 
-  Motor_6 = Motor_Hiz + yatis + yunuslama + derinlik;
+  Motor_6 = Motor_Hiz - yatis + yunuslama + derinlik;
   if (Motor_6 >= Mak_deger) Motor_6 = Mak_deger;
   else if (Motor_6 <= Min_deger) Motor_6 = Min_deger;
 
-  Motor_7 = Motor_Hiz + yatis + yunuslama + derinlik;
+  Motor_7 = Motor_Hiz + yatis - yunuslama + derinlik;
   if (Motor_7 >= Mak_deger) Motor_7 = Mak_deger;
   else if (Motor_7 <= Min_deger) Motor_7 = Min_deger;
   Motor_7 = tersCevir(Motor_7); // Yön ters çevrildi
 
-  Motor_8 = Motor_Hiz + yatis + yunuslama + derinlik;
+  Motor_8 = Motor_Hiz - yatis - yunuslama + derinlik;
   if (Motor_8 >= Mak_deger) Motor_8 = Mak_deger;
   else if (Motor_8 <= Min_deger) Motor_8 = Min_deger;
   Motor_8 = tersCevir(Motor_8); // Yön ters çevrildi
