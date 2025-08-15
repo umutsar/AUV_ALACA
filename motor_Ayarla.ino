@@ -4,21 +4,21 @@ int tersCevir(int deger) {
 }
 
 void motor_Ayarla() {
-  Motor_1 = Motor_Hiz  + ileri_Komut + geri_Komut - sol_Komut - sag_Komut + arti_Komut + eksi_Komut + pusula;
+  Motor_1 = Motor_Hiz  + ileri_Komut - geri_Komut - sol_Komut - sag_Komut - arti_Komut + eksi_Komut + pusula;
   if (Motor_1 >= Mak_deger) Motor_1 = Mak_deger;
   else if (Motor_1 <= Min_deger) Motor_1 = Min_deger;
   Motor_1 = tersCevir(Motor_1); // Yön ters çevrildi
 
-  Motor_2 = Motor_Hiz  + ileri_Komut + geri_Komut + sol_Komut + sag_Komut + arti_Komut + eksi_Komut - pusula;
+  Motor_2 = Motor_Hiz  + ileri_Komut - geri_Komut + sol_Komut + sag_Komut + arti_Komut - eksi_Komut - pusula;
   if (Motor_2 >= Mak_deger) Motor_2 = Mak_deger;
   else if (Motor_2 <= Min_deger) Motor_2 = Min_deger;
 
-  Motor_3 = Motor_Hiz  + ileri_Komut + geri_Komut - sol_Komut - sag_Komut + arti_Komut + eksi_Komut + pusula;
+  Motor_3 = Motor_Hiz  + ileri_Komut - geri_Komut - sol_Komut - sag_Komut + arti_Komut - eksi_Komut + pusula;
   if (Motor_3 >= Mak_deger) Motor_3 = Mak_deger;
   else if (Motor_3 <= Min_deger) Motor_3 = Min_deger;
   Motor_3 = tersCevir(Motor_3); // Yön ters çevrildi
 
-  Motor_4 = Motor_Hiz  + ileri_Komut + geri_Komut + sol_Komut + sag_Komut + arti_Komut + eksi_Komut - pusula;
+  Motor_4 = Motor_Hiz  + ileri_Komut - geri_Komut + sol_Komut + sag_Komut - arti_Komut + eksi_Komut - pusula;
   if (Motor_4 >= Mak_deger) Motor_4 = Mak_deger;
   else if (Motor_4 <= Min_deger) Motor_4 = Min_deger;
 
