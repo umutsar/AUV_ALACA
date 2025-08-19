@@ -17,7 +17,7 @@ void ekranda_Goster()
     //Serial.print("PID_Der_Ref > "); Serial.println(PID_Der_Ref);
     //Serial.print("PID_Pus_Ref > "); Serial.println(PID_Pus_Ref);
     //Serial.print("Ref_Pus > "); Serial.println(Ref_Pus);
-    
+
     //Serial.print("Gyro_X > "); Serial.println(Gyro_X);
     //Serial.print("Gyro_Y > "); Serial.println(Gyro_Y);
     //Serial.print("Gyro_Z > "); Serial.println(Gyro_Z);
@@ -30,9 +30,9 @@ void ekranda_Goster()
     //Serial.print("Yatış > "); Serial.println(yatis);
     //Serial.print("Sapma > "); Serial.println(sapma);
     //Serial.print("Derinlik > "); Serial.println(derinlik);
-    //Serial.print("Pusula > "); Serial.println(pusula);
+   //Serial.print("Pusula > "); Serial.println(pusula);
 
-    //Serial.print("Kalan Açı > "); Serial.println(kalan_Aci);
+   //Serial.print("Kalan Açı > "); Serial.println(kalan_Aci);
     //Serial.print("PID_kalan_aci > "); Serial.println(PID_kalan_aci);
     e_ = millis();
   }

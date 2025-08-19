@@ -9,13 +9,25 @@ Servo_Ext Ext_Servo_Kontrol;
 #include "MS5837.h"
 MS5837 sensor;
 
+
+// sar değişkenleri
+bool ivme_goster_flag = 0;
+bool pusula_goster_flag = 0;
+bool motor_pwm_goster_flag = 0;
+bool derinlik_flag = 0;
+
+
+// İvme Değişkenleri
+int Lia_X_Data, Lia_Y_Data, Lia_Z_Data;
+
 //MİLLİS KONTROL
 unsigned long f_, e_, h_zaman;
 
 //VERİ İŞLEME
 char Gelen_Komutlar[100];
 int veri_sayisi = 0 , veri[5];
-int tam_deger = 360,  sifirlama = 0;
+int tam_deger = 360; 
+float sifirlama = 0;
 bool hareket_Durum = false;
 
 //İTKİ
@@ -34,7 +46,7 @@ int Min_deger = 1120; // Minimum PWM
 int Motor_1, Motor_2, Motor_3, Motor_4; // İtiş Motorları
 int Motor_5, Motor_6, Motor_7, Motor_8; // Batış Motorları
 bool motor_Aktif = false;
-int Ref_Pus2 = 0;
+
 
 //PID
 float PID_Yun_Ref, PID_Yat_Ref, PID_Sap_Ref, PID_Der_Ref, PID_Pus_Ref, PID_kalan_aci;
@@ -58,7 +70,7 @@ float Ki_3 = 0.000;
 float Kd_3 = 0.000;
 
 //PUSULA PID / YAW KATSAYILARI: 100Hz
-float Kp_4 = 3;
+float Kp_4 = 5.0;
 float Ki_4 = 0.000;
 float Kd_4 = 0.000;
 
@@ -74,4 +86,16 @@ void loop() {
   pid_Ayarla();
   motor_Ayarla();
   ekranda_Goster();
+  if(ivme_goster_flag) {
+    ivme_Goster();
+  }
+  if(motor_pwm_goster_flag) {
+    motor_pwm_goster();
+  }
+  if (pusula_goster_flag){
+   Serial.print("Pusula > "); Serial.println(pusula);
+
+   Serial.print("Kalan Açı > "); Serial.println(kalan_Aci);
+    Serial.print("PID_kalan_aci > "); Serial.println(PID_kalan_aci);
+  }
 }

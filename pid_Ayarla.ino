@@ -19,7 +19,11 @@ void pid_Ayarla() {
   } else if (PID_Pus_Ref < 0) {
     PID_Pus_Ref += 360;
   }
-  
+  else {
+    PID_Pus_Ref = PID_Pus_Ref;
+  }
+  Serial.print("PID_Pus_Ref: ");
+  Serial.println(PID_Pus_Ref, 2);
   kalan_Aci = Veri_Kontrol.Koord_A_Data(PID_Pus_Ref, Ref_Pus);
   
   if (millis() - f_ >= 10) //100Hz

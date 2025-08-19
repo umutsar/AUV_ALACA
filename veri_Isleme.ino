@@ -40,7 +40,7 @@ void veri_Isleme()
       motor_Aktif = true;
       Derinlik_Kabl = true;
       sifirlama = Z_Acisi;
-      Ref_Pus = 0;
+      Ref_Pus = 0.00;
       
     }
     else if (Gelen_Komutlar[0] == 'A' && Gelen_Komutlar[1] == 'K') motor_Aktif = false;
@@ -64,18 +64,31 @@ void veri_Isleme()
     }
     else if (Gelen_Komutlar[0] == 'T') //Görev atama komutu ayıklama işlemi
     {
-      Ref_Pus += (String(Gelen_Komutlar).substring(String(Gelen_Komutlar).indexOf(' ') + 1)).toInt();
-      Serial.print("Ref_Pus: ");
-      Serial.println(Ref_Pus);
+      int gelen_sayi = (String(Gelen_Komutlar).substring(String(Gelen_Komutlar).indexOf(' ') + 1)).toInt();
+      if(gelen_sayi == 91) ivme_goster_flag = 1;
+      else if (gelen_sayi== 92) ivme_goster_flag=0;
+      else if (gelen_sayi== 93) pusula_goster_flag=1;
+      else if (gelen_sayi== 94) pusula_goster_flag=0;
+      else if (gelen_sayi== 95) motor_pwm_goster_flag=1;
+      else if (gelen_sayi== 96) motor_pwm_goster_flag=0;
+      else if (gelen_sayi== 97) derinlik_flag=1;
+      else if (gelen_sayi== 98) derinlik_flag=0;
+      else {
+          Ref_Pus += gelen_sayi;
+          Serial.print("Ref_Pus: ");
+          Serial.println(Ref_Pus);
+          
+          if (Ref_Pus > 360) {
+            Ref_Pus -= 360;
+          }
+          else if (Ref_Pus < 0) {
+            Ref_Pus += 360;
+          }
+          Ref_Pus = Ref_Pus / 2;
+        }
+      }
       
-      if (Ref_Pus > 360) {
-        Ref_Pus -= 360;
-      }
-      else if (Ref_Pus < 0) {
-        Ref_Pus += 360;
-      }
-      Ref_Pus = Ref_Pus / 2;
-    }
+
 
     else
     {

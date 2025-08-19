@@ -26,6 +26,11 @@ void derinlik_Hesapla()
   {
     Kab_Dept = Arac_Dept - Kalb_Deger_Dept;
     Kab_Dept *= 100; //CM ÇEVİRME
+    if(derinlik_flag) {
+      Serial.print("Derinlik: ");
+      Serial.println(Kab_Dept);
+    }
+    
   }
 }
 

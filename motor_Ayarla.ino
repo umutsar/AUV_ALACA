@@ -55,4 +55,6 @@ void motor_Ayarla() {
       Ext_Servo_Kontrol.Ext_Servo(i, Motor_Hiz);
     }
   }
+  //Serial.print("kp4: ");
+  //Serial.println(Kp_4);
 }
