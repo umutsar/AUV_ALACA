@@ -4,6 +4,10 @@ int tersCevir(int deger) {
 }
 
 void motor_Ayarla() {
+  if(pusula_flag) {
+    pusula *= -1;
+  }
+  
   Motor_1 = Motor_Hiz  + ileri_Komut - geri_Komut - sol_Komut - sag_Komut - arti_Komut + eksi_Komut + pusula;
   if (Motor_1 >= Mak_deger) Motor_1 = Mak_deger;
   else if (Motor_1 <= Min_deger) Motor_1 = Min_deger;
@@ -50,6 +54,7 @@ void motor_Ayarla() {
     Ext_Servo_Kontrol.Ext_Servo(5, Motor_6);
     Ext_Servo_Kontrol.Ext_Servo(6, Motor_7);
     Ext_Servo_Kontrol.Ext_Servo(7, Motor_8);
+    
   } else {
     for (int i = 0; i < 8; i++) {
       Ext_Servo_Kontrol.Ext_Servo(i, Motor_Hiz);

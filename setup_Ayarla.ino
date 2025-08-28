@@ -3,6 +3,7 @@ void setup_Ayarla() {
   Serial.begin(57600);
   Serial1.begin(57600);
 
+  
   //VERİ ALMA
   Veri_Kontrol.Sensor_begin();
   Veri_Kontrol.LED_begin();
@@ -34,4 +35,5 @@ void setup_Ayarla() {
   digitalWrite(LED_B, 0);
   Serial1.println("Sistem Başlatılıyor");
   Serial.println("Sistem Başlatılıyor");
+  timer_donus = millis();
 }

@@ -15,7 +15,7 @@ void derinlik_Hesapla()
   // Sensörün sıcaklık ve basınç verileri güncellenir:
   sensor.read();
   Arac_Dept = sensor.depth();
-
+  
   //KALİBRASYON İŞLEMİ:
   if (Derinlik_Kabl == true)
   {
@@ -24,14 +24,27 @@ void derinlik_Hesapla()
   }
   else
   {
-    Kab_Dept = Arac_Dept - Kalb_Deger_Dept;
-    Kab_Dept *= 100; //CM ÇEVİRME
+    Kab_Dept1 = Arac_Dept - Kalb_Deger_Dept;
+    Kab_Dept1 *= 100; //CM ÇEVİRME
+    Kab_Dept1 += derinlik_fark;
+    if(filtre_acik_flag) {
+      Kab_Dept = alpha * Kab_Dept1 + (1 - alpha) * Kab_Dept;
+    }
+    else {
+      Kab_Dept = Kab_Dept1;
+    }
+    
     if(derinlik_flag) {
       Serial.print("Derinlik: ");
       Serial.println(Kab_Dept);
     }
-    
   }
+  /*  
+  if(millis() - timer_sapma > 200) {
+    sapma_derinlik += 0.0001;
+    timer_sapma = millis();
+  }
+  */
 }
 
 void derinlik_Ayarlama()
